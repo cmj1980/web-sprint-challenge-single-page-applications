@@ -1,14 +1,14 @@
-import React from "react";
-
-
+import React, { useState } from "react";
+import './App.css'
+import axios from "axios";
 import Form from "./compnets/pizza_order_form";
 
 const App = () => {
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+    <div className="App">
+      <Form
+      />
+    </div>
   );
 };
 export default App;

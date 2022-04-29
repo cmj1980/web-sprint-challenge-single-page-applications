@@ -2,24 +2,38 @@ import React from "react";
 
 
 const Form = (props) => {
+    const { change, submit, } = props;
+    const { customerName, pizzaSize, checkedBox, specialText  } = props.values
+
+    const onChange= (evt) => {
+        const { type, value, checked, name } = evt.target;
+        const newValue = type === "checkbox" ? checked : value;
+        change(name, newValue);
+    }
+
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+        submit();
+    }
 
 
 return (
     <div className="form-wrapper">
         <h1>Pizza Order Form</h1>
 
-        <form id="pizza-form">
+        <form id="pizza-form" onSubmit={onSubmit}>
             <label>Customer Name:
                   <input
                       type="text"
                       name="name-input"
                       value={customerName}
-                      onChange={onChnage}
+                      onChange={onChange}
                       />
             </label>
+            <div className="size-div">
             <label>Select Pizza Size
                 <select
-                      onChange={onChnage}
+                      onChange={onChange}
                       value={pizzaSize}
                       name="size-dropdown"
                       required>
@@ -31,31 +45,37 @@ return (
                           <option value="extra-large">Extra Large</option>
                       </select>
             </label>
-            <fieldset>
-                <legend>Choose Your Toppings</legend>
-                <div>
-                    <input type="checkbox" id="extra-cheese" name="toppings" vale="extra-cheese" />
-                        <label for="extra-cheese">Extra Cheese</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="pepperoni" name="toppings" vale="pepperoni" />
-                        <label for="pepperoni">Pepperoni</label>
-                </div><div>
-                    <input type="checkbox" id="sausage" name="toppings" vale="sausage" />
-                        <label for="extra-cheese">Sausage</label>
-                </div><div>
-                    <input type="checkbox" id="black-olives" name="toppings" vale="black-olives" />
-                        <label for="extra-cheese">Black Olives</label>
-                </div>
-            </fieldset>
+            </div>
+            <div className="toppings-div">
+                <h2>Toppings</h2>
+                <label>
+                      <input type="checkbox" name="checkedBox" checked={checkedBox} onChange={onChange} />
+                      Extra Cheese
+                </label>
+                <label>
+                      <input type="checkbox" name="checkedBox" checked={checkedBox} onChange={onChange} />
+                      Pepperoni
+                </label>
+                <label>
+                      <input type="checkbox" name="checkedBox" checked={checkedBox} onChange={onChange} />
+                      Sausage
+                </label>
+                <label>
+                      <input type="checkbox" name="checkedBox" checked={checkedBox} onChange={onChange} />
+                      Black Olives
+                </label>
+
+            </div>
+            <div className="instructions-div">
             <label>Special Instructions
                 <input
                    type="text"
                    name="special-text"
-                   value=""
+                   value={specialText}
                    onChange={onChange}
                    />
             </label>
+            </div>
             <input type="submit" id="order-button" value="Place Order" />
         </form>
     </div>
