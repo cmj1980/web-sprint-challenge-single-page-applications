@@ -10,21 +10,15 @@ import Form from "./compnets/Form"
 const initialFormValues = {
   name: "",
   size: "",
-  extraCheese: false,
-  pepperoni: false,
-  sausage: false,
-  blackOlives: false,
   instructions: "",
+  id: "name-input",
 }
 
 const initialFormErrors = {
   name: "",
   size: "",
-  extraCheese: "",
-  pepperoni: "",
-  sausage: "",
-  blackOlives: "",
   instructions: "",
+  id: "name-input",
 }
 
 
