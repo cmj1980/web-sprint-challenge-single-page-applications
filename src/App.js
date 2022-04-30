@@ -8,16 +8,22 @@ import Form from "./compnets/Form"
 //import Confirm from "./compnets/Confirm"
 
 const initialFormValues = {
-  customer: "",
+  name: "",
   size: "",
-  checked: false,
+  extraCheese: false,
+  pepperoni: false,
+  sausage: false,
+  blackOlives: false,
   instructions: "",
 }
 
 const initialFormErrors = {
-  customer: "",
+  name: "",
   size: "",
-  checked: "",
+  extraCheese: "",
+  pepperoni: "",
+  sausage: "",
+  blackOlives: "",
   instructions: "",
 }
 
@@ -26,23 +32,23 @@ const initialFormErrors = {
 
 
 const App = () => {
-  const [formValues, setFormValues] = useState(initialFormValues);
+  const [testOrder, setTestOrder] = useState(initialFormValues);
   //const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [orders, setOrders] = useState([])
 
   const handleSubmit = () => {
-    axios.post("https://reqres.in/api/orders", formValues)
+    axios.post("https://reqres.in/api/orders", testOrder)
     .then(res => {
      console.log(res)
      setOrders([ res.data, ...orders ])
        
     })
     .catch(err => console.error(err))
-    .finally(() => setFormValues(initialFormValues))
+    .finally(() => setTestOrder(initialFormValues))
   }
 
-  const handleChange = (id, value) => {
-    setFormValues({ ...formValues, [id]: value})
+  const handleChange = (name, value) => {
+    setTestOrder({ ...testOrder, [name]: value})
   }
 
 
@@ -60,7 +66,7 @@ const App = () => {
         
 <Route path="/pizza">
           <Form
-             values={formValues}
+             values={testOrder}
              change={handleChange}
              submit={handleSubmit}
            />

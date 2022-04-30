@@ -4,7 +4,7 @@ import React from "react";
 
 const Form = (props) => {
  const { change, submit, errors } = props;
- const { customer, size, checked, instructions  } = props.values;
+ const { name, size, extraCheese, pepperoni, sausage, blackOlives, instructions  } = props.values;
 
 
  
@@ -24,11 +24,11 @@ const Form = (props) => {
 
 return (
     <div>
-        <form id="pizza-form" name="pizza-form" onSubmit={onSubmit}  >
-            <label>Name:<input type="text" name="name-input" id="name-input" value={customer} onChange={onChange} /></label>
+        <form id="pizza-form" name="pizza-form"  >
+            <label>Name:<input type="text" id="name-input" name="name" value={name} onChange={onChange} /></label>
             <label>Select Pizza Size:
                   <select 
-                        name="size-dropdown"
+                        name="size"
                         id="size-dropdown"
                         value={size}
                         onChange={onChange}>
@@ -41,23 +41,26 @@ return (
             <fieldset>
                 <legend>Choose Your Toppings</legend>
                 <div>
-                    <label for="extra-cheese">Extra Cheese</label>
-                    <input type="checkbox" id="extra-cheese" name="toppings" value={checked} />
+                    <label>Extra Cheese</label>
+                    <input type="checkbox" id="extra-cheese" name="extra-cheese" value={extraCheese} onChange={onChange} />
                 </div>
                 <div>
-                    <label for="pepperoni">Pepperoni</label>
-                    <input type="checkbox" id="pepperoni" name="toppings" value={checked} />
+                    <label>Pepperoni</label>
+                    <input type="checkbox" id="pepperoni" name="pepperoni" value={pepperoni} onChange={onChange} />
                 </div>
                 <div>
-                    <label for="sausage">Sausage</label>
-                    <input type="checkbox" id="sausage" name="toppings" value={checked} />
+                    <label>Sausage</label>
+                    <input type="checkbox" id="sausage" name="sausage" value={sausage} onChange={onChange} />
                 </div>
                 <div>
-                    <label for="black-olives">Black Olives</label>
-                    <input type="checkbox" id="black-olives" name="toppings" value={checked} />
+                    <label>Black Olives</label>
+                    <input type="checkbox" id="black-olives" name="black-olives" value={blackOlives} onChange={onChange} />
                 </div>
             </fieldset>
-            <label>Special Instructions: <input type="text" name="special-text" id="special-text" value={instructions} onChange={onChange} /></label>
+            <label>Special Instructions: <input type="text" name="instructions" id="special-text" value={instructions} onChange={onChange} /></label>
+            <label>
+                <button onClick={onSubmit} id="order-button"></button>
+            </label>
         </form>
     </div>
 
