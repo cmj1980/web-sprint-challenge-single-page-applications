@@ -4,7 +4,7 @@ import React from "react";
 
 const Form = (props) => {
  const { change, submit, errors } = props;
- const { name, size, extraCheese, pepperoni, sausage, checked, instructions  } = props.values;
+ const { name, size, cheese, sausage, pepperoni, olives, instructions  } = props.values;
 
 
  
@@ -25,7 +25,8 @@ const Form = (props) => {
 return (
     <div>
         <form id="pizza-form" name="pizza-form" onSubmit={onSubmit} >
-            <label>Name:<input type="text" id="name-input" name="name" value={name} onChange={onChange} /></label>
+            <label>Name:<input type="text" id="name-input" name="name" value={name} onChange={onChange} /></label> 
+            <p>{errors.name}</p>
             <label>Select Pizza Size:
                   <select 
                         name="size"
@@ -42,19 +43,19 @@ return (
                 <legend>Choose Your Toppings</legend>
                 <div>
                     <label>Extra Cheese</label>
-                    <input type="checkbox" id="extra-cheese" name="extra-cheese" value={extraCheese} onChange={onChange} />
+                    <input type="checkbox" id="extra-cheese" name="cheese" value={cheese} onChange={onChange} />
                 </div>
                 <div>
                     <label>Pepperoni</label>
-                    <input type="checkbox" id="pepperoni" name="pepperoni" value={pepperoni} onChange={onChange} />
+                    <input type="checkbox" id="pepperoni" name="pepperoni" checked={pepperoni} onChange={onChange} />
                 </div>
                 <div>
                     <label>Sausage</label>
-                    <input type="checkbox" id="sausage" name="sausage" value={sausage} onChange={onChange} />
+                    <input type="checkbox" id="sausage" name="sausage" checked={sausage} onChange={onChange} />
                 </div>
                 <div>
                     <label>Black Olives</label>
-                    <input type="checkbox" id="black-olives" name="black-olives" value={checked} onChange={onChange} />
+                    <input type="checkbox" id="black-olives" name="olives" checked={olives} onChange={onChange} />
                 </div>
             </fieldset>
             <label>Special Instructions: <input type="text" name="instructions" id="special-text" value={instructions} onChange={onChange} /></label>

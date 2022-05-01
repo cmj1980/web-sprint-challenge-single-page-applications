@@ -1,24 +1,34 @@
 import React, { useState } from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
+import * as yup from 'yup';
+import schema from "./validation/schemaForm"
 
 
 import Home from "./compnets/Home"
 import Form from "./compnets/Form"
 //import Confirm from "./compnets/Confirm"
 
-const initialFormValues = {
+const initialOrderValues = {
   name: "",
   size: "",
+  cheese: false,
+  pepperoni: false,
+  sausage: false,
+  olives: false,
   instructions: "",
-  id: "name-input",
+ 
 }
 
-const initialFormErrors = {
+const initialOrderErrors = {
   name: "",
   size: "",
+  cheese: "",
+  pepperoni: "",
+  sausage: "",
+  olives: "",
   instructions: "",
-  id: "name-input",
+  
 }
 
 
@@ -26,8 +36,8 @@ const initialFormErrors = {
 
 
 const App = () => {
-  const [testOrder, setTestOrder] = useState(initialFormValues);
-  //const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [testOrder, setTestOrder] = useState(initialOrderValues);
+  const [orderErrors, setOrderErrors] = useState(initialOrderErrors);
   const [orders, setOrders] = useState([])
 
   const handleSubmit = () => {
@@ -38,10 +48,18 @@ const App = () => {
        
     })
     .catch(err => console.error(err))
-    .finally(() => setTestOrder(initialFormValues))
+    .finally(() => setTestOrder(initialOrderValues))
+  }
+
+  const validate = (name, value) => {
+    yup.reach(schema, name)
+    .validate(value)
+    .then(() => setOrderErrors({ ...orderErrors, [name]: ""}))
+    .catch(err => setOrderErrors({ ...orderErrors, [name]: err.errors[0] }))
   }
 
   const handleChange = (name, value) => {
+    validate(name, value);
     setTestOrder({ ...testOrder, [name]: value})
   }
 
@@ -57,12 +75,13 @@ const App = () => {
         </div>
       </nav>
       <Switch>
-        
-<Route path="/pizza">
+        <Route path="/pizza">
           <Form
              values={testOrder}
              change={handleChange}
              submit={handleSubmit}
+             errors={orderErrors}
+             
            />
         </Route>
         <Route path="/">
