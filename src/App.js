@@ -3,6 +3,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
 import * as yup from 'yup';
 import schema from "./validation/schemaForm"
+import "./App.css"
 
 
 import Home from "./compnets/Home"
@@ -67,7 +68,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <nav>
+      <nav className="header-nav">
         <h1 className="app-header">My Pizza App</h1>
         <div className="nav-links">
           <Link to="/">Home</Link>
@@ -89,6 +90,7 @@ const App = () => {
         </Route>
       </Switch>
     </div>
+    
     
   );
 };
