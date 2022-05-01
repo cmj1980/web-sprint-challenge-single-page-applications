@@ -59,9 +59,11 @@ return (
                 </div>
             </fieldset>
             <label>Special Instructions: <input type="text" name="instructions" id="special-text" value={instructions} onChange={onChange} /></label>
+            <div>
             <label>
                 <button onClick={onSubmit} id="order-button"></button>
             </label>
+            </div>
         </form>
     </div>
 
