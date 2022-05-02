@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: space-around;
     background-image: url("/Assets/Pizza.jpg");
-    background-size: contain;
+    background-size: cover;
     min-height: 50vh;
     background-repeat: no-repeat;
 }
@@ -30,5 +30,5 @@ button#order-button {
 
 h1 {
     color: cornflowerblue;
-    margin-right: 7%;
+    
 }
