@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+
+
 }
 
 .App-logo {
@@ -7,7 +9,32 @@
   pointer-events: none;
 }
 .nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 5px;
+  border: solid cornflowerblue 2px;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  margin-right: 7%;
+
+}
+
+a#home-link {
+  color: cornflowerblue;
   background-color: black;
+  padding: 3px;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+
+a#order-pizza {
+  color: cornflowerblue;
+  background-color: black;
+  padding: 3px;
+  border-radius: 4px;
+  margin-right: 5px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -32,11 +59,15 @@
 }
  
 .header-nav {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
 }
-.h1 {
-  color: white;
+
+.subBtn {
+
 }
+
+
 
 @keyframes App-logo-spin {
   from {

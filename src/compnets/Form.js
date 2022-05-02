@@ -1,4 +1,5 @@
 import React from "react";
+import "./Home.css"
 
 
 
@@ -24,9 +25,15 @@ const Form = (props) => {
 
 return (
     <div>
+        <div>
+            <h1>Build You Own Pizza</h1>
+        </div>
         <form id="pizza-form" name="pizza-form" onSubmit={onSubmit} >
+            <div>
             <label>Name:<input type="text" id="name-input" name="name" value={name} onChange={onChange} /></label> 
             <p>{errors.name}</p>
+            </div>
+            <div>
             <label>Select Pizza Size:
                   <select 
                         name="size"
@@ -39,6 +46,7 @@ return (
                             <option value="large">Large</option>
                     </select>
             </label>
+            </div>
             <fieldset>
                 <legend>Choose Your Toppings</legend>
                 <div>
@@ -61,7 +69,7 @@ return (
             <label>Special Instructions: <input type="text" name="instructions" id="special-text" value={instructions} onChange={onChange} /></label>
             <div>
             <label>
-                <button onClick={onSubmit} id="order-button"></button>
+                <button onClick={onSubmit} id="order-button">Place Order</button>
             </label>
             </div>
         </form>

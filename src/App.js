@@ -69,9 +69,9 @@ const App = () => {
   return (
     <div className="App">
       <nav className="header-nav">
-        <h1 className="app-header">My Pizza App</h1>
+        <h1 className="app-header">CJ's Pizza Place</h1>
         <div className="nav-links">
-          <Link to="/">Home</Link>
+          <Link to="/" id="home-link">Home</Link>
           <Link to="/pizza" id="order-pizza">Order Pizza</Link>
         </div>
       </nav>
@@ -89,7 +89,8 @@ const App = () => {
           <Home />
         </Route>
       </Switch>
-    </div>
+
+      </div>
     
     
   );

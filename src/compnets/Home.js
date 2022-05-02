@@ -12,13 +12,9 @@ const Home = () => {
     }
 
 return (
-    <div className='home-wrapper'>
-        <section className='home-bg'>
-            <div>
-
-            </div>
-        </section>
-        <div>
+    
+    <div className='btn-wrapper'>
+        <div className='subBtn'>
         <button 
         onClick={routeToPizza}
         className="order-pizza"
